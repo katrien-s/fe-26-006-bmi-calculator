@@ -1,0 +1,416 @@
+/* ----------------  */
+/* Variables    */
+/* ----------------  */
+
+// Colors (Primitives)
+$clr-neutral-900: hsl(0 0% 0%);
+$clr-neutral-100: hsl(0 0% 100%);
+
+$clr-grey-500: hsl(215 17% 45%);
+$clr-grey-300: hsl(215 43% 77%);
+
+$clr-blue-900: hsl(215 31% 21%);
+$clr-blue-500: hsl(227 92% 58%);
+$clr-blue-300: hsl(209 69% 82%);
+$clr-blue-100: hsl(228 94% 94%);
+
+$clr-gradient: linear-gradient(
+	90deg,
+	rgba(214, 252, 254, 1) 0%,
+	rgba(214, 230, 254, 0) 100%
+);
+
+// Typography
+$fs-900: 4rem;
+$fs-800: 3rem;
+$fs-700: 2rem;
+$fs-600: 1.5rem;
+$fs-500: 1.25rem;
+$fs-400: 1rem;
+$fs-300: 0.875rem;
+
+$ff-text: 'Inter', sans-serif;
+$letter-spacing: -5%;
+
+$fw-700: 700;
+$fw-600: 600;
+$fw-500: 500;
+$fw-400: 400;
+
+@mixin text-preset-1 {
+	font: #{$fw-600} #{$fs-900}/ 1.1 #{$ff-text};
+	letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-2 {
+	font: #{$fw-600} #{$fs-800}/ 1.1 #{$ff-text};
+	letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-3 {
+	font: #{$fw-600} #{$fs-700}/ 1.1 #{$ff-text};
+	letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-4 {
+	font: #{$fw-600} #{$fs-600}/ 1.2 #{$ff-text};
+	letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-5 {
+	font: #{$fw-600} #{$fs-500}/ 1.2 #{$ff-text};
+	letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-6 {
+	font: #{$fw-400} #{$fs-400}/ 1.5 #{$ff-text};
+}
+
+@mixin text-preset-7 {
+	font: #{$fw-400} #{$fs-300}/ 1.5 #{$ff-text};
+}
+
+// size
+$size-144: 9rem;
+$size-128: 8rem;
+$size-104: 6.5rem;
+$size-96: 6rem;
+$size-88: 6rem;
+$size-80: 5.5rem;
+$size-72: 4.5rem;
+$size-64: 4rem;
+$size-56: 3.5rem;
+$size-48: 3rem;
+$size-40: 2.5rem;
+$size-32: 2rem;
+$size-24: 1.5rem;
+$size-16: 1rem;
+$size-8: 0.5rem;
+
+// radius
+$radius-full: 999px;
+$radius-24: 24px;
+$radius-20: 20px;
+$radius-16: 16px;
+$radius-12: 12px;
+$radius-10: 10px;
+$radius-8: 8px;
+$radius-6: 6px;
+$radius-4: 4px;
+$radius-0: 0;
+
+$wrapper-max-width: 70rem;
+
+// breakpoints
+$bp-small: 35rem;
+$bp-tablet: 40rem;
+$bp-desktop: 45rem;
+$bp-wide: 50rem;
+
+// mixins
+@mixin mq($breakpoint) {
+	@media screen and (min-width: $breakpoint) {
+		@content;
+	}
+}
+
+/* ----------------  */
+/* Custom Fonts      */
+/* ----------------  */
+
+@font-face {
+	font-display: swap;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('ttf');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	src: url('../assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('ttf');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('ttf');
+}
+
+/* ----------------  */
+/* Reset             */
+/* ----------------  */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	block-size: 100%;
+	scrollbar-gutter: stable;
+	overflow-x: hidden;
+}
+
+img,
+iframe,
+audio,
+video,
+canvas {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+svg {
+	max-inline-size: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+textarea {
+	resize: vertical;
+}
+
+fieldset,
+iframe {
+	border: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+// Typography Reset
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+	text-wrap: balance;
+}
+
+p {
+	text-wrap: pretty;
+	font-variant-numeric: proportional-nums;
+	font-weight: $fw-400;
+}
+
+h1,
+h2,
+h3,
+.looks-h3,
+h4,
+h5,
+h6 {
+	color: $clr-neutral-900;
+
+	font: {
+		family: $ff-text;
+		variant-numeric: lining-nums;
+		weight: $fw-400;
+	}
+}
+
+input,
+label,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	@include text-preset-6;
+
+	min-block-size: 100svh;
+	background-color: $clr-neutral-100;
+	color: $clr-grey-500;
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* -----------------  */
+/* Utility Classes    */
+/* -----------------  */
+
+.split {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.flex-center-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.margin-inline-center {
+	margin-inline: auto;
+}
+
+.wrapper {
+	width: min(95vw, $wrapper-max-width);
+	margin-inline: auto;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+[hidden] {
+	display: none;
+}
+
+.skip-to-content {
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	background-color: $clr-neutral-100;
+	color: $clr-neutral-900;
+	padding: $size-8 $size-16;
+	margin-inline: auto;
+	transform: translateY(-100%);
+	transition: transform 500ms ease-in-out;
+
+	&:focus {
+		transform: translateY(0);
+	}
+}
+
+/* Typography */
+h2,
+h3,
+h4,
+p {
+	text-align: left;
+}
+
+h1 {
+	@include text-preset-2;
+	text-align: center;
+
+	@include mq($bp-tablet) {
+		@include text-preset-1;
+		text-align: left;
+	}
+}
+
+h2 {
+	@include text-preset-2;
+}
+
+h3,
+.looks-h3 {
+	@include text-preset-4;
+}
+
+h4 {
+	@include text-preset-5;
+}
+
+/* ----------------  */
+/* Components        */
+/* ----------------  */
+
+/* ----------------  */
+/* Navigation        */
+/* ----------------  */
+
+/* ----------------  */
+/* Sections          */
+/* ----------------  */
+
+.cards-grid {
+  display: grid;
+  // afmetingen checken voor cards
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $size-16;
+  margin-block-start: $size-56;
+  
+  
+	.card {
+    border-radius: $size-16;
+    padding: $size-24;
+		background-color: $clr-neutral-100;
+		box-shadow: 16px 32px 50px 0px rgba(143, 174, 207, 0.25);
+
+		h4 {
+			margin-block-end: $size-16;
+		}
+
+		@include mq($bp-tablet) {
+			padding: $size-32;
+		}
+	}
+}
+
+/* ----------------  */
+/* Layout            */
+/* ----------------  */

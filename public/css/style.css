@@ -1,0 +1,292 @@
+/* ----------------  */
+/* Variables    */
+/* ----------------  */
+/* ----------------  */
+/* Custom Fonts      */
+/* ----------------  */
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+}
+/* ----------------  */
+/* Reset             */
+/* ----------------  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  block-size: 100%;
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+img,
+iframe,
+audio,
+video,
+canvas {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+svg {
+  max-inline-size: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset,
+iframe {
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+  font-variant-numeric: proportional-nums;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+.looks-h3,
+h4,
+h5,
+h6 {
+  color: hsl(0, 0%, 0%);
+  font-family: "Inter", sans-serif;
+  font-variant-numeric: lining-nums;
+  font-weight: 400;
+}
+
+input,
+label,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font: 400 1rem/1.5 Inter, sans-serif;
+  min-block-size: 100svh;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(215, 17%, 45%);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* -----------------  */
+/* Utility Classes    */
+/* -----------------  */
+.split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.margin-inline-center {
+  margin-inline: auto;
+}
+
+.wrapper {
+  width: min(95vw, 70rem);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+.skip-to-content {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+  padding: 0.5rem 1rem;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 500ms ease-in-out;
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
+/* Typography */
+h2,
+h3,
+h4,
+p {
+  text-align: left;
+}
+
+h1 {
+  font: 600 3rem/1.1 Inter, sans-serif;
+  letter-spacing: -5%;
+  text-align: center;
+}
+@media screen and (min-width: 40rem) {
+  h1 {
+    font: 600 4rem/1.1 Inter, sans-serif;
+    letter-spacing: -5%;
+    text-align: left;
+  }
+}
+
+h2 {
+  font: 600 3rem/1.1 Inter, sans-serif;
+  letter-spacing: -5%;
+}
+
+h3,
+.looks-h3 {
+  font: 600 1.5rem/1.2 Inter, sans-serif;
+  letter-spacing: -5%;
+}
+
+h4 {
+  font: 600 1.25rem/1.2 Inter, sans-serif;
+  letter-spacing: -5%;
+}
+
+/* ----------------  */
+/* Components        */
+/* ----------------  */
+/* ----------------  */
+/* Navigation        */
+/* ----------------  */
+/* ----------------  */
+/* Sections          */
+/* ----------------  */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-block-start: 3.5rem;
+}
+.cards-grid .card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 16px 32px 50px 0px rgba(143, 174, 207, 0.25);
+}
+.cards-grid .card h4 {
+  margin-block-end: 1rem;
+}
+@media screen and (min-width: 40rem) {
+  .cards-grid .card {
+    padding: 2rem;
+  }
+}
+
+/* ----------------  */
+/* Layout            */
+/* ----------------  */
+
+/*# sourceMappingURL=style.css.map */
