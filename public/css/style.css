@@ -166,10 +166,32 @@ body {
 /* -----------------  */
 /* Utility Classes    */
 /* -----------------  */
-.split {
-  display: flex;
+.flow > *:where(:not(:first-child)) {
+  margin-block-start: var(--flow-space, 6rem);
+}
+
+.flow-space-big {
+  --flow-space: 4.5rem;
+}
+
+.flow-space-normal {
+  --flow-space: 1rem;
+}
+
+.flow-space-small {
+  --flow-space: 0.25rem;
+}
+
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+.flex-center {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: var(--gap, 1rem);
 }
 
 .flex-center-between {
@@ -183,7 +205,9 @@ body {
 }
 
 .wrapper {
-  width: min(95vw, 70rem);
+  width: min(100vw, 70rem);
+  padding-inline: 1.5rem;
+  padding-block-start: 2rem;
   margin-inline: auto;
 }
 
@@ -242,6 +266,7 @@ h1 {
 h2 {
   font: 600 3rem/1.1 Inter, sans-serif;
   letter-spacing: -5%;
+  margin-block-end: 2rem;
 }
 
 h3,
@@ -250,39 +275,57 @@ h3,
   letter-spacing: -5%;
 }
 
-h4 {
+h4,
+.looks-h4 {
   font: 600 1.25rem/1.2 Inter, sans-serif;
   letter-spacing: -5%;
+}
+
+.fw-700 {
+  font-weight: 700;
 }
 
 /* ----------------  */
 /* Components        */
 /* ----------------  */
+.card .svg-wrapper {
+  margin-block-end: 2rem;
+}
+.card.background {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 16px 32px 50px 0px rgba(143, 174, 207, 0.25);
+}
+.card.background .looks-h4 {
+  margin-block-end: 1rem;
+  --gap: $size-20;
+}
+.card.no-background h3 {
+  margin-block-end: 1.5rem;
+}
+@media screen and (min-width: 40rem) {
+  .card {
+    padding: 2rem;
+  }
+}
+
 /* ----------------  */
 /* Navigation        */
 /* ----------------  */
 /* ----------------  */
 /* Sections          */
 /* ----------------  */
+.section--tips {
+  display: grid;
+  gap: 2.5rem;
+}
+
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
   margin-block-start: 3.5rem;
-}
-.cards-grid .card {
-  border-radius: 1rem;
-  padding: 1.5rem;
-  background-color: hsl(0, 0%, 100%);
-  box-shadow: 16px 32px 50px 0px rgba(143, 174, 207, 0.25);
-}
-.cards-grid .card h4 {
-  margin-block-end: 1rem;
-}
-@media screen and (min-width: 40rem) {
-  .cards-grid .card {
-    padding: 2rem;
-  }
 }
 
 /* ----------------  */

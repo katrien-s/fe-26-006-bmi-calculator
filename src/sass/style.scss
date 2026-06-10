@@ -84,6 +84,7 @@ $size-48: 3rem;
 $size-40: 2.5rem;
 $size-32: 2rem;
 $size-24: 1.5rem;
+$size-20: 1.25rem;
 $size-16: 1rem;
 $size-8: 0.5rem;
 
@@ -100,6 +101,8 @@ $radius-4: 4px;
 $radius-0: 0;
 
 $wrapper-max-width: 70rem;
+$spacing-inline: $size-24;
+$spacing-block-start: $size-32;
 
 // breakpoints
 $bp-small: 35rem;
@@ -291,10 +294,32 @@ body {
 /* Utility Classes    */
 /* -----------------  */
 
-.split {
-	display: flex;
+.flow > *:where(:not(:first-child)) {
+	margin-block-start: var(--flow-space, $size-96);
+}
+
+.flow-space-big {
+	--flow-space: 4.5rem;
+}
+
+.flow-space-normal {
+	--flow-space: 1rem;
+}
+
+.flow-space-small {
+	--flow-space: 0.25rem;
+}
+
+.grid-center {
+	display: grid;
+	place-items: center;
+}
+
+.flex-center {
+	display: inline-flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	gap: var(--gap, $size-16);
 }
 
 .flex-center-between {
@@ -308,7 +333,9 @@ body {
 }
 
 .wrapper {
-	width: min(95vw, $wrapper-max-width);
+	width: min(100vw, $wrapper-max-width);
+	padding-inline: $spacing-inline;
+	padding-block-start: $spacing-block-start;
 	margin-inline: auto;
 }
 
@@ -364,6 +391,7 @@ h1 {
 
 h2 {
 	@include text-preset-2;
+	margin-block-end: $size-32;
 }
 
 h3,
@@ -371,13 +399,48 @@ h3,
 	@include text-preset-4;
 }
 
-h4 {
+h4,
+.looks-h4 {
 	@include text-preset-5;
+}
+
+.fw-700 {
+	font-weight: $fw-700;
 }
 
 /* ----------------  */
 /* Components        */
 /* ----------------  */
+
+.card {
+	.svg-wrapper {
+		margin-block-end: $size-32;
+	}
+
+	&.background {
+		border-radius: $size-16;
+		padding: $size-24;
+		background-color: $clr-neutral-100;
+		box-shadow: 16px 32px 50px 0px rgba(143, 174, 207, 0.25);
+
+		.looks-h4 {
+			margin-block-end: $size-16;
+
+      // hwo to implement this gap then?
+      --gap: $size-20;
+		}
+	}
+
+	&.no-background {
+		h3 {
+			margin-block-end: $size-24;
+		}
+	}
+
+	@include mq($bp-tablet) {
+		padding: $size-32;
+	}
+}
 
 /* ----------------  */
 /* Navigation        */
@@ -387,30 +450,21 @@ h4 {
 /* Sections          */
 /* ----------------  */
 
+.section--tips {
+	display: grid;
+	gap: $size-40;
+}
+
 .cards-grid {
-  display: grid;
-  // afmetingen checken voor cards
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: $size-16;
-  margin-block-start: $size-56;
-  
-  
-	.card {
-    border-radius: $size-16;
-    padding: $size-24;
-		background-color: $clr-neutral-100;
-		box-shadow: 16px 32px 50px 0px rgba(143, 174, 207, 0.25);
-
-		h4 {
-			margin-block-end: $size-16;
-		}
-
-		@include mq($bp-tablet) {
-			padding: $size-32;
-		}
-	}
+	display: grid;
+	// afmetingen checken voor cards
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: $size-16;
+	margin-block-start: $size-56;
 }
 
 /* ----------------  */
 /* Layout            */
 /* ----------------  */
+
+
