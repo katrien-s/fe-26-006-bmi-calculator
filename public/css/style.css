@@ -8,22 +8,8 @@
   font-display: swap;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
-  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("ttf");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("ttf");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+  font-weight: 100 900;
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
 }
 /* ----------------  */
 /* Reset             */
@@ -166,20 +152,11 @@ body {
 /* -----------------  */
 /* Utility Classes    */
 /* -----------------  */
+.flow {
+  --flow-space: 6rem;
+}
 .flow > *:where(:not(:first-child)) {
-  margin-block-start: var(--flow-space, 6rem);
-}
-
-.flow-space-big {
-  --flow-space: 4.5rem;
-}
-
-.flow-space-normal {
-  --flow-space: 1rem;
-}
-
-.flow-space-small {
-  --flow-space: 0.25rem;
+  margin-block-start: var(--flow-space);
 }
 
 .grid-center {
@@ -205,9 +182,9 @@ body {
 }
 
 .wrapper {
-  width: min(100vw, 70rem);
+  width: min(100%, 70rem);
   padding-inline: 1.5rem;
-  padding-block-start: 2rem;
+  padding-block: 2rem;
   margin-inline: auto;
 }
 
@@ -252,33 +229,33 @@ p {
 
 h1 {
   font: 600 3rem/1.1 Inter, sans-serif;
-  letter-spacing: -5%;
+  letter-spacing: -0.02em;
   text-align: center;
 }
 @media screen and (min-width: 40rem) {
   h1 {
     font: 600 4rem/1.1 Inter, sans-serif;
-    letter-spacing: -5%;
+    letter-spacing: -0.02em;
     text-align: left;
   }
 }
 
 h2 {
   font: 600 3rem/1.1 Inter, sans-serif;
-  letter-spacing: -5%;
+  letter-spacing: -0.02em;
   margin-block-end: 2rem;
 }
 
 h3,
 .looks-h3 {
   font: 600 1.5rem/1.2 Inter, sans-serif;
-  letter-spacing: -5%;
+  letter-spacing: -0.02em;
 }
 
 h4,
 .looks-h4 {
   font: 600 1.25rem/1.2 Inter, sans-serif;
-  letter-spacing: -5%;
+  letter-spacing: -0.02em;
 }
 
 .fw-700 {
@@ -299,7 +276,9 @@ h4,
 }
 .card.background .looks-h4 {
   margin-block-end: 1rem;
-  --gap: $size-20;
+}
+.card.background .looks-h4 .flex-center {
+  --gap: 1.25rem;
 }
 .card.no-background h3 {
   margin-block-end: 1.5rem;
