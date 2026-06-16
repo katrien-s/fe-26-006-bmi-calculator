@@ -90,6 +90,7 @@ $size-8: 0.5rem;
 
 // radius
 $radius-full: 999px;
+$radius-35: 35px;
 $radius-24: 24px;
 $radius-20: 20px;
 $radius-16: 16px;
@@ -219,7 +220,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: $clr-neutral-900;
+	color: $clr-blue-900;
 
 	font: {
 		family: $ff-text;
@@ -381,6 +382,22 @@ h4,
 	@include text-preset-5;
 }
 
+.text-preset-2 {
+	@include text-preset-2;
+}
+
+.text-preset-6 {
+	@include text-preset-6;
+}
+
+.text-preset-7 {
+	@include text-preset-7;
+}
+
+.fw-600 {
+	font-weight: $fw-600;
+}
+
 .fw-700 {
 	font-weight: $fw-700;
 }
@@ -437,6 +454,12 @@ h4,
 /* Sections          */
 /* ----------------  */
 
+.section--intro {
+	background: $clr-gradient;
+	border-bottom-left-radius: $radius-35;
+	border-bottom-right-radius: $radius-35;
+}
+
 .section--tips {
 	display: grid;
 	gap: $size-40;
@@ -444,8 +467,8 @@ h4,
 }
 
 .section--limits {
-  display: grid;
-  gap: $size-16;
+	display: grid;
+	gap: $size-16;
 
 	@include mq($bp-small) {
 		display: grid;
@@ -499,3 +522,47 @@ h4,
 /* ----------------  */
 /* Layout            */
 /* ----------------  */
+
+.calculator {
+	background-color: $clr-neutral-100;
+	color: $clr-blue-900;
+	border-radius: $radius-24;
+	padding: $size-24;
+	display: flex;
+	flex-direction: column;
+	gap: $size-24;
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: $size-24;
+	}
+
+	&__result {
+		background-color: $clr-blue-500;
+		color: $clr-neutral-100;
+		padding: $size-32;
+		border-radius: $radius-16;
+	}
+
+	&__score {
+		@include text-preset-1;
+	}
+
+	&__feedback {
+		margin-block-start: $size-24;
+	}
+
+	label {
+		@include text-preset-7;
+	}
+
+	.number-label {
+		color: $clr-grey-500;
+	}
+
+	.radio-label {
+		@include text-preset-6;
+		font-weight: $fw-600;
+	}
+}
