@@ -87,6 +87,7 @@ $size-24: 1.5rem;
 $size-20: 1.25rem;
 $size-16: 1rem;
 $size-8: 0.5rem;
+$size-4: 0.25rem;
 
 // radius
 $radius-full: 999px;
@@ -179,6 +180,15 @@ select {
 
 textarea {
 	resize: vertical;
+}
+
+input[type='number'] {
+	appearance: textfield; // Firefox
+
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		appearance: none; // Chrome, Safari, Edge
+	}
 }
 
 fieldset,
@@ -405,6 +415,37 @@ h4,
 /* ----------------  */
 /* Components        */
 /* ----------------  */
+
+// Radio Buttons
+.calculator {
+	&__radio-group {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		&__radio {
+			display: flex;
+			align-items: center;
+			gap: $size-16;
+
+			&__radio-input {
+				appearance: none;
+				width: $size-32;
+				height: $size-32;
+				border: 2px solid $clr-grey-500;
+				border-radius: $radius-full;
+				cursor: pointer;
+
+				&:checked {
+					background-color: $clr-blue-500;
+					border: $size-8 solid $clr-blue-100;
+					outline: $size-4 solid $clr-blue-100;
+					outline-offset: -1px;
+				}
+			}
+		}
+	}
+}
+
 .card {
 	.svg-wrapper {
 		margin-block-end: $size-32;
@@ -458,6 +499,14 @@ h4,
 	background: $clr-gradient;
 	border-bottom-left-radius: $radius-35;
 	border-bottom-right-radius: $radius-35;
+
+	&__text {
+		margin-block: $size-32;
+
+		@include mq($bp-tablet) {
+			margin-block: $size-40;
+		}
+	}
 }
 
 .section--tips {
@@ -524,6 +573,7 @@ h4,
 /* ----------------  */
 
 .calculator {
+	// Layout
 	background-color: $clr-neutral-100;
 	color: $clr-blue-900;
 	border-radius: $radius-24;
@@ -532,10 +582,95 @@ h4,
 	flex-direction: column;
 	gap: $size-24;
 
+	// Elements
 	&__form {
 		display: flex;
 		flex-direction: column;
 		gap: $size-24;
+	}
+
+	&__radio-group {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: $size-24;
+	}
+
+	&__radio {
+		display: flex;
+		align-items: center;
+		gap: $size-16;
+	}
+
+	&__radio-input {
+		appearance: none;
+		width: $size-32;
+		height: $size-32;
+		border: 2px solid $clr-grey-500;
+		border-radius: $radius-full;
+		cursor: pointer;
+		flex-shrink: 0;
+
+		&:checked {
+			background-color: $clr-blue-500;
+			border: $size-8 solid $clr-blue-100;
+			outline: $size-4 solid $clr-blue-100;
+			outline-offset: -1px;
+		}
+	}
+
+	&__radio-label {
+		@include text-preset-6;
+		font-weight: $fw-600;
+	}
+
+	&__inputs {
+		display: grid;
+		gap: $size-8;
+
+		@include mq($bp-tablet) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: $size-24;
+		}
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: $size-4;
+	}
+
+	&__label {
+		@include text-preset-7;
+		color: $clr-grey-500;
+	}
+
+	&__input-wrapper {
+		@include text-preset-4;
+		padding: $size-16 $size-24;
+		border: 1px solid $clr-grey-500;
+		border-radius: $radius-12;
+		color: $clr-blue-900;
+		display: flex;
+		align-items: center;
+
+		input {
+			border: none;
+			background-color: transparent;
+			flex: 1;
+			outline: none;
+			min-width: 0;
+			width: 0;
+		}
+
+		&:has(input:focus-visible) {
+			border-color: $clr-blue-500;
+			outline: 2px solid $clr-blue-500;
+			outline-offset: 2px;
+		}
+	}
+
+	&__unit {
+		color: $clr-blue-500;
 	}
 
 	&__result {
@@ -543,6 +678,13 @@ h4,
 		color: $clr-neutral-100;
 		padding: $size-32;
 		border-radius: $radius-16;
+
+		@include mq($bp-tablet) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			border-top-right-radius: $radius-full;
+			border-bottom-right-radius: $radius-full;
+		}
 	}
 
 	&__score {
@@ -551,18 +693,5 @@ h4,
 
 	&__feedback {
 		margin-block-start: $size-24;
-	}
-
-	label {
-		@include text-preset-7;
-	}
-
-	.number-label {
-		color: $clr-grey-500;
-	}
-
-	.radio-label {
-		@include text-preset-6;
-		font-weight: $fw-600;
 	}
 }

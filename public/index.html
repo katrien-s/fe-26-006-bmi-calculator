@@ -16,48 +16,77 @@
 	<body>
 		<main class="flow">
 			<section class="section--intro wrapper">
-				<h1>Body Mass Index Calculator</h1>
-				<p>
+				<h1 class="section--intro__title">Body Mass Index Calculator</h1>
+				<p class="section--intro__text">
 					Better understand your weight in relation to your height using our
 					body mass index (BM) calculator. While BMI is not the sole determinant
 					of a healthy weight, it offers a valuable starting point to evaluate
 					your overall health and well-being.
 				</p>
 				<div class="calculator">
-					<!-- this shows on load, but with enpty values and updates upon typing? -->
 					<p class="looks-h3">Enter your details below</p>
 					<form action="" class="calculator__form">
-						<div class="flex-center-between">
-							<div>
-								<input type="radio" name="system" id="metric" />
-								<label class="radio-label" for="metric">Metric</label>
+						<div class="calculator__radio-group">
+							<div class="calculator__radio">
+								<input
+									class="calculator__radio-input"
+									type="radio"
+									name="system"
+									id="metric"
+								/>
+								<label class="calculator__radio-label" for="metric"
+									>Metric</label
+								>
 							</div>
-							<div>
-								<input type="radio" name="system" id="imperial" />
-								<label class="radio-label" for="imperial">Imperial</label>
+							<div class="calculator__radio">
+								<input
+									class="calculator__radio-input"
+									type="radio"
+									name="system"
+									id="imperial"
+								/>
+								<label class="calculator__radio-label" for="imperial"
+									>Imperial</label
+								>
 							</div>
 						</div>
 
-						<div>
-							<label class="number-label" for="height">Height</label>
-							<input type="number" name="height" id="height" />
-							<!-- depends on chosen system whether cm or inch, kg or onz -->
-							<label class="number-label" for="weight">Weight</label>
-							<input type="number" name="weight" id="weight" />
-							<!-- depends on chosen system whether cm or inch, kg or onz -->
+						<div class="calculator__inputs">
+							<div class="calculator__field">
+								<label class="calculator__label" for="height">Height</label>
+								<div class="calculator__input-wrapper">
+									<input
+										type="number"
+										name="height"
+										id="height"
+										placeholder="0"
+									/>
+									<span class="calculator__unit">cm</span>
+								</div>
+							</div>
+							<div class="calculator__field">
+								<label class="calculator__label" for="weight">Weight</label>
+								<div class="calculator__input-wrapper">
+									<input
+										type="number"
+										name="weight"
+										id="weight"
+										placeholder="0"
+									/>
+									<span class="calculator__unit">kg</span>
+								</div>
+							</div>
 						</div>
 					</form>
 					<output class="calculator__result" for="height weight">
-						<!-- add score -->
-						<p class="fw-600">Your BMI is</p>
-						<p class="calculator__score">23.4</p>
-						<!-- calcualted in js -->
+						<div>
+							<p class="fw-600">Your BMI is</p>
+							<p class="calculator__score">23.4</p>
+						</div>
 						<p class="calculator__feedback">
-							Your BMI suggests you're <span></span> Your ideal weight is
-							between <span class="fw-600">63.3kgs - 85.2kgs</span>
+							Your BMI suggests you're <span>a healthy weight</span>. Your ideal
+							weight is between <span class="fw-600">63.3kgs - 85.2kgs</span>
 						</p>
-						<!-- add classification in js -->
-						<!-- add range calculated in js-->
 					</output>
 				</div>
 			</section>
