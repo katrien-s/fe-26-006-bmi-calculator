@@ -194,6 +194,11 @@ body {
   padding-block: 2rem;
   margin-inline: auto;
 }
+@media screen and (min-width: 50rem) {
+  .wrapper {
+    padding-block: 5.5rem;
+  }
+}
 
 .sr-only {
   position: absolute;
@@ -239,7 +244,7 @@ h1 {
   letter-spacing: -0.02em;
   text-align: center;
 }
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 45rem) {
   h1 {
     font: 600 4rem/1.1 Inter, sans-serif;
     letter-spacing: -0.02em;
@@ -248,9 +253,16 @@ h1 {
 }
 
 h2 {
-  font: 600 3rem/1.1 Inter, sans-serif;
+  font: 600 2rem/1.1 Inter, sans-serif;
   letter-spacing: -0.02em;
   margin-block-end: 2rem;
+}
+@media screen and (min-width: 45rem) {
+  h2 {
+    font: 600 3rem/1.1 Inter, sans-serif;
+    letter-spacing: -0.02em;
+    text-align: left;
+  }
 }
 
 h3,
@@ -289,39 +301,6 @@ h4,
 /* ----------------  */
 /* Components        */
 /* ----------------  */
-.calculator__radio-group {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-.calculator__radio-group__radio {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.calculator__radio-group__radio__radio-input {
-  appearance: none;
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid hsl(215, 17%, 45%);
-  border-radius: 999px;
-  cursor: pointer;
-}
-.calculator__radio-group__radio__radio-input:checked {
-  background-color: hsl(227, 92%, 58%);
-  border: 0.5rem solid hsl(228, 94%, 94%);
-  outline: 0.25rem solid hsl(228, 94%, 94%);
-  outline-offset: -1px;
-}
-
-.card .svg-wrapper {
-  margin-block-end: 2rem;
-}
-@media screen and (min-width: 40rem) {
-  .card {
-    padding: 2rem;
-  }
-}
-
 .card--elevated {
   border-radius: 1rem;
   padding: 1.5rem;
@@ -331,9 +310,29 @@ h4,
 .card--elevated .flex-center {
   --gap: 1.25rem;
 }
+@media screen and (min-width: 40rem) {
+  .card--elevated {
+    padding: 2rem;
+  }
+}
 
+.card--flat .svg-wrapper {
+  margin-block-end: 2rem;
+}
 .card--flat h3 {
   margin-block-end: 1.5rem;
+}
+@media screen and (min-width: 40rem) {
+  .card--flat {
+    padding: unset;
+  }
+  .card--flat > * {
+    align-self: center;
+  }
+  .card--flat .svg-wrapper {
+    padding: unset;
+    margin: unset;
+  }
 }
 
 @media screen and (min-width: 40rem) {
@@ -352,15 +351,23 @@ h4,
 }
 
 /* ----------------  */
-/* Navigation        */
-/* ----------------  */
-/* ----------------  */
 /* Sections          */
 /* ----------------  */
 .section--intro {
+  position: relative;
+}
+.section--intro::before {
+  content: "";
+  position: absolute;
   background: linear-gradient(90deg, rgba(214, 252, 254, 0) 0%, rgb(214, 230, 254) 100%);
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
+  width: 100%;
+  height: 650px;
+  z-index: -1;
+}
+.section--intro__text, .section--intro__title {
+  text-align: center;
 }
 .section--intro__text {
   margin-block: 2rem;
@@ -370,11 +377,86 @@ h4,
     margin-block: 2.5rem;
   }
 }
+.section--intro .bmi-logo {
+  margin-block-end: 2rem;
+}
+@media screen and (min-width: 40rem) {
+  .section--intro .bmi-logo {
+    margin-block-end: 2.5rem;
+  }
+}
+@media screen and (min-width: 50rem) {
+  .section--intro .bmi-logo {
+    margin-block-end: 1.5rem;
+  }
+}
+@media screen and (min-width: 50rem) {
+  .section--intro::before {
+    width: min(75%, 50% + 17.5rem);
+    height: 735px;
+  }
+  .section--intro__text-wrapper {
+    align-self: center;
+  }
+  .section--intro__text, .section--intro__title {
+    text-align: left;
+  }
+  .section--intro .bmi-logo {
+    margin-inline: unset;
+  }
+}
+@media screen and (min-width: 50rem) {
+  .section--intro__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.bmi-logo {
+  margin-inline: auto;
+  width: 40px;
+  height: 40px;
+}
+
+.section--theory__title {
+  font: 600 2rem/1.1 Inter, sans-serif;
+  letter-spacing: -0.02em;
+  margin-block-start: 3rem;
+}
+@media screen and (min-width: 45rem) {
+  .section--theory {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.5rem;
+  }
+  .section--theory__textblock {
+    align-self: center;
+  }
+  .section--theory__title {
+    font: 600 3rem/1.1 Inter, sans-serif;
+    letter-spacing: -0.02em;
+    margin-block-start: unset;
+  }
+}
+@media screen and (min-width: 45rem) {
+  .section--theory {
+    width: 70rem;
+    margin-inline: auto;
+  }
+}
 
 .section--tips {
   display: grid;
   gap: 2.5rem;
   background: linear-gradient(90deg, rgba(214, 252, 254, 0) 0%, rgb(214, 230, 254) 100%);
+}
+@media screen and (min-width: 40rem) {
+  .section--tips .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+  }
 }
 
 .section--limits {
@@ -383,10 +465,9 @@ h4,
 }
 @media screen and (min-width: 35rem) {
   .section--limits {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-  .section--limits .section--limits__intro {
+  .section--limits__intro {
     grid-column: 1/-1;
   }
   .section--limits .card--last {
@@ -395,7 +476,7 @@ h4,
     justify-self: center;
   }
 }
-@media screen and (min-width: 35rem) and (min-width: 45rem) {
+@media screen and (min-width: 35rem) and (min-width: 50rem) {
   .section--limits .card--last {
     grid-column: 7/11;
     max-width: unset;
@@ -408,7 +489,7 @@ h4,
     grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
   }
-  .section--limits .section--limits__intro {
+  .section--limits__intro {
     grid-column: 1/7;
     grid-row: 1;
   }
@@ -441,6 +522,11 @@ h4,
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+@media screen and (min-width: 50rem) {
+  .calculator {
+    align-self: center;
+  }
 }
 .calculator__form {
   display: flex;

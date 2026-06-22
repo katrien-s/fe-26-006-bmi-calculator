@@ -325,6 +325,10 @@ body {
 	padding-inline: $spacing-inline;
 	padding-block: $spacing-block;
 	margin-inline: auto;
+
+	@include mq($bp-wide) {
+		padding-block: $size-88;
+	}
 }
 
 .sr-only {
@@ -371,15 +375,20 @@ h1 {
 	@include text-preset-2;
 	text-align: center;
 
-	@include mq($bp-tablet) {
+	@include mq($bp-desktop) {
 		@include text-preset-1;
 		text-align: left;
 	}
 }
 
 h2 {
-	@include text-preset-2;
+	@include text-preset-3;
 	margin-block-end: $size-32;
+
+	@include mq($bp-desktop) {
+		@include text-preset-2;
+		text-align: left;
+	}
 }
 
 h3,
@@ -416,46 +425,6 @@ h4,
 /* Components        */
 /* ----------------  */
 
-// Radio Buttons
-.calculator {
-	&__radio-group {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-
-		&__radio {
-			display: flex;
-			align-items: center;
-			gap: $size-16;
-
-			&__radio-input {
-				appearance: none;
-				width: $size-32;
-				height: $size-32;
-				border: 2px solid $clr-grey-500;
-				border-radius: $radius-full;
-				cursor: pointer;
-
-				&:checked {
-					background-color: $clr-blue-500;
-					border: $size-8 solid $clr-blue-100;
-					outline: $size-4 solid $clr-blue-100;
-					outline-offset: -1px;
-				}
-			}
-		}
-	}
-}
-
-.card {
-	.svg-wrapper {
-		margin-block-end: $size-32;
-	}
-
-	@include mq($bp-tablet) {
-		padding: $size-32;
-	}
-}
-
 .card--elevated {
 	border-radius: $size-16;
 	padding: $size-24;
@@ -465,11 +434,32 @@ h4,
 	.flex-center {
 		--gap: #{$size-20};
 	}
+
+	@include mq($bp-tablet) {
+		padding: $size-32;
+	}
 }
 
 .card--flat {
+	.svg-wrapper {
+		margin-block-end: $size-32;
+	}
+
 	h3 {
 		margin-block-end: $size-24;
+	}
+
+	@include mq($bp-tablet) {
+		padding: unset;
+
+		> * {
+			align-self: center;
+		}
+
+		.svg-wrapper {
+			padding: unset;
+			margin: unset;
+		}
 	}
 }
 
@@ -488,17 +478,27 @@ h4,
 }
 
 /* ----------------  */
-/* Navigation        */
-/* ----------------  */
-
-/* ----------------  */
 /* Sections          */
 /* ----------------  */
 
 .section--intro {
-	background: $clr-gradient;
-	border-bottom-left-radius: $radius-35;
-	border-bottom-right-radius: $radius-35;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		background: $clr-gradient;
+		border-bottom-left-radius: $radius-35;
+		border-bottom-right-radius: $radius-35;
+		width: 100%;
+		height: 650px;
+		z-index: -1;
+	}
+
+	&__text,
+	&__title {
+		text-align: center;
+	}
 
 	&__text {
 		margin-block: $size-32;
@@ -507,12 +507,96 @@ h4,
 			margin-block: $size-40;
 		}
 	}
+
+	.bmi-logo {
+		margin-block-end: $size-32;
+
+		@include mq($bp-tablet) {
+			margin-block-end: $size-40;
+		}
+
+    @include mq($bp-wide) {
+			margin-block-end: $size-24;
+		}
+	}
+
+	@include mq($bp-wide) {
+		&::before {
+			width: min(75%, calc(50% + #{$wrapper-max-width * 0.25}));
+      height: 735px;
+		}
+
+		&__text-wrapper {
+			align-self: center;
+		}
+
+		&__text,
+		&__title {
+			text-align: left;
+		}
+
+		.bmi-logo {
+			margin-inline: unset;
+		}
+	}
+
+	&__grid {
+		@include mq($bp-wide) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: $size-32;
+		}
+	}
+}
+
+.bmi-logo {
+	margin-inline: auto;
+	width: 40px;
+	height: 40px;
+}
+
+.section--theory {
+	&__title {
+		@include text-preset-3;
+		margin-block-start: $size-48;
+	}
+
+	@include mq($bp-desktop) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: $size-72;
+
+		&__textblock {
+			align-self: center;
+		}
+
+		&__title {
+			@include text-preset-2;
+			margin-block-start: unset;
+		}
+	}
+
+	// even kijken hoe we het beeld links laten aflopen en rechts de tekst laten eindigen op de wrapper-breedte
+	// breedte klopt ppk niet meer overflow op tablet-size
+
+	@include mq($bp-desktop) {
+		width: $wrapper-max-width;
+		margin-inline: auto;
+	}
 }
 
 .section--tips {
 	display: grid;
 	gap: $size-40;
 	background: $clr-gradient;
+
+	@include mq($bp-tablet) {
+		.card {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			gap: $size-20;
+		}
+	}
 }
 
 .section--limits {
@@ -520,10 +604,9 @@ h4,
 	gap: $size-16;
 
 	@include mq($bp-small) {
-		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 
-		.section--limits__intro {
+		&__intro {
 			grid-column: 1 / -1;
 		}
 
@@ -532,7 +615,7 @@ h4,
 			max-width: 50%;
 			justify-self: center;
 
-			@include mq($bp-desktop) {
+			@include mq($bp-wide) {
 				grid-column: 7 / 11;
 				max-width: unset;
 				justify-self: unset;
@@ -545,10 +628,11 @@ h4,
 		grid-template-columns: repeat(12, 1fr);
 		gap: $size-32;
 
-		.section--limits__intro {
+		&__intro {
 			grid-column: 1/7;
 			grid-row: 1;
 		}
+
 		.card:nth-child(2) {
 			grid-column: 8/12;
 			grid-row: 1;
@@ -581,6 +665,10 @@ h4,
 	display: flex;
 	flex-direction: column;
 	gap: $size-24;
+
+	@include mq($bp-wide) {
+		align-self: center;
+	}
 
 	// Elements
 	&__form {

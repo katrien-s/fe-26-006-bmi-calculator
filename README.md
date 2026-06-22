@@ -15,9 +15,7 @@ This is a solution to the [Body Mass Index Calculator challenge on Frontend Ment
   - [Useful resources](#useful-resources)
   - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -65,27 +63,23 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### How to set the gradient on desktop view as such that it stops in the center of the calculator?
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+```scss
+&::before {
+  width: min(75%, calc(50% + #{$wrapper-max-width * 0.25}));
+  height: 735px;
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+1. From the left edge of the section to the center of the wrapper = 50%
+2. From the center of the wrapper to the center of the right column = 25% of the wrapper width
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+So the total width at max size would be `calc(50% + #{$wrapper-max-width * 0.25})`.
+
+Then you can combine both values with `min()` — using 75% when the wrapper doesn't have side margins yet, and the `calc()` value when it does. The `min()` picks whichever value is smaller at any given viewport width. Before the wrapper hits its max-width, 75% is smaller. After it does, the `calc()` value is smaller. They're equal exactly at the breakpoint where the wrapper stops growing.
+
+
 
 ### Continued development
 
@@ -102,24 +96,14 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
+- What tools did you use? 
+Claude
+- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)? 
+debugging, cleaning, brainstorming
 - What worked well? What didn't?
 
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
 
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**

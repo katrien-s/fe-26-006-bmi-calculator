@@ -15,79 +15,86 @@
 	</head>
 	<body>
 		<main class="flow">
-			<section class="section--intro wrapper">
-				<h1 class="section--intro__title">Body Mass Index Calculator</h1>
-				<p class="section--intro__text">
-					Better understand your weight in relation to your height using our
-					body mass index (BM) calculator. While BMI is not the sole determinant
-					of a healthy weight, it offers a valuable starting point to evaluate
-					your overall health and well-being.
-				</p>
-				<div class="calculator">
-					<p class="looks-h3">Enter your details below</p>
-					<form action="" class="calculator__form">
-						<div class="calculator__radio-group">
-							<div class="calculator__radio">
-								<input
-									class="calculator__radio-input"
-									type="radio"
-									name="system"
-									id="metric"
-								/>
-								<label class="calculator__radio-label" for="metric"
-									>Metric</label
-								>
-							</div>
-							<div class="calculator__radio">
-								<input
-									class="calculator__radio-input"
-									type="radio"
-									name="system"
-									id="imperial"
-								/>
-								<label class="calculator__radio-label" for="imperial"
-									>Imperial</label
-								>
-							</div>
+			<section class="section--intro">
+				<div class="wrapper">
+					<img src="assets/images/logo.svg" class="bmi-logo" alt="" />
+					<div class="section--intro__grid">
+						<div class="section--intro__text-wrapper">
+							<h1 class="section--intro__title">Body Mass Index Calculator</h1>
+							<p class="section--intro__text">
+								Better understand your weight in relation to your height using
+								our body mass index (BM) calculator. While BMI is not the sole
+								determinant of a healthy weight, it offers a valuable starting
+								point to evaluate your overall health and well-being.
+							</p>
 						</div>
-
-						<div class="calculator__inputs">
-							<div class="calculator__field">
-								<label class="calculator__label" for="height">Height</label>
-								<div class="calculator__input-wrapper">
-									<input
-										type="number"
-										name="height"
-										id="height"
-										placeholder="0"
-									/>
-									<span class="calculator__unit">cm</span>
+						<div class="calculator">
+							<p class="looks-h3">Enter your details below</p>
+							<form action="" class="calculator__form">
+								<div class="calculator__radio-group">
+									<div class="calculator__radio">
+										<input
+											class="calculator__radio-input"
+											type="radio"
+											name="system"
+											id="metric"
+										/>
+										<label class="calculator__radio-label" for="metric"
+											>Metric</label
+										>
+									</div>
+									<div class="calculator__radio">
+										<input
+											class="calculator__radio-input"
+											type="radio"
+											name="system"
+											id="imperial"
+										/>
+										<label class="calculator__radio-label" for="imperial"
+											>Imperial</label
+										>
+									</div>
 								</div>
-							</div>
-							<div class="calculator__field">
-								<label class="calculator__label" for="weight">Weight</label>
-								<div class="calculator__input-wrapper">
-									<input
-										type="number"
-										name="weight"
-										id="weight"
-										placeholder="0"
-									/>
-									<span class="calculator__unit">kg</span>
+								<div class="calculator__inputs">
+									<div class="calculator__field">
+										<label class="calculator__label" for="height">Height</label>
+										<div class="calculator__input-wrapper">
+											<input
+												type="number"
+												name="height"
+												id="height"
+												placeholder="0"
+											/>
+											<span class="calculator__unit">cm</span>
+										</div>
+									</div>
+									<div class="calculator__field">
+										<label class="calculator__label" for="weight">Weight</label>
+										<div class="calculator__input-wrapper">
+											<input
+												type="number"
+												name="weight"
+												id="weight"
+												placeholder="0"
+											/>
+											<span class="calculator__unit">kg</span>
+										</div>
+									</div>
 								</div>
-							</div>
+							</form>
+							<output class="calculator__result" for="height weight">
+								<div>
+									<p class="fw-600">Your BMI is</p>
+									<p class="calculator__score">23.4</p>
+								</div>
+								<p class="calculator__feedback">
+									Your BMI suggests you're <span>a healthy weight</span>. Your
+									ideal weight is between
+									<span class="fw-600">63.3kgs - 85.2kgs</span>
+								</p>
+							</output>
 						</div>
-					</form>
-					<output class="calculator__result" for="height weight">
-						<div>
-							<p class="fw-600">Your BMI is</p>
-							<p class="calculator__score">23.4</p>
-						</div>
-						<p class="calculator__feedback">
-							Your BMI suggests you're <span>a healthy weight</span>. Your ideal
-							weight is between <span class="fw-600">63.3kgs - 85.2kgs</span>
-						</p>
-					</output>
+					</div>
 				</div>
 			</section>
 			<section class="section--theory">
@@ -95,8 +102,8 @@
 					src="assets/images/image-man-eating.webp"
 					alt="Smiling young man in his twenties holding sushi with his chopsticks"
 				/>
-				<div class="wrapper">
-					<h2>What your BMI result means</h2>
+				<div class="section--theory__textblock">
+					<h2 class="section--theory__title">What your BMI result means</h2>
 					<p>
 						A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
 						Maintaining a healthy weight may lower your chances of experiencing
@@ -127,11 +134,13 @@
 							/>
 						</svg>
 					</div>
-					<h3>Healthy eating</h3>
-					<p>
-						Healthy eating promotes weight control, disease prevention, better
-						digestion, immunity, mental clarity, and mood.
-					</p>
+					<div>
+						<h3>Healthy eating</h3>
+						<p>
+							Healthy eating promotes weight control, disease prevention, better
+							digestion, immunity, mental clarity, and mood.
+						</p>
+					</div>
 				</div>
 				<div class="card card--flat">
 					<div class="svg-wrapper">
@@ -151,11 +160,13 @@
 							/>
 						</svg>
 					</div>
-					<h3>Regular exercise</h3>
-					<p>
-						Exercise improves fitness, aids weight control, elevates mood, and
-						reduces disease risk, fostering wellness and longevity.
-					</p>
+					<div>
+						<h3>Regular exercise</h3>
+						<p>
+							Exercise improves fitness, aids weight control, elevates mood, and
+							reduces disease risk, fostering wellness and longevity.
+						</p>
+					</div>
 				</div>
 				<div class="card card--flat">
 					<div class="svg-wrapper">
@@ -175,17 +186,19 @@
 							/>
 						</svg>
 					</div>
-					<h3>Adequate sleep</h3>
-					<p>
-						Sleep enhances mental clarity, emotional stability, and physical
-						wellness, promoting overall restoration and rejuvenation.
-					</p>
+					<div>
+						<h3>Adequate sleep</h3>
+						<p>
+							Sleep enhances mental clarity, emotional stability, and physical
+							wellness, promoting overall restoration and rejuvenation.
+						</p>
+					</div>
 				</div>
 			</section>
 			<section class="section--limits wrapper">
 				<div class="section--limits__intro">
-					<h2 class="mobile-center">Limitations of BMI</h2>
-					<p class="mobile-center">
+					<h2 class="section--limits__title">Limitations of BMI</h2>
+					<p class="">
 						Although BMI is often a practical indicator of healthy weight, it is
 						not suited for every person. Specific groups should carefully
 						consider their BMI outcomes, and in certain cases, the measurement
