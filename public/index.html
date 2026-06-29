@@ -11,6 +11,7 @@
 			href="./assets/images/favicon-32x32.png"
 		/>
 		<link rel="stylesheet" href="css/style.css" />
+		<script src="./assets/app.js" defer></script>
 		<title>Frontend Mentor | Body Mass Index Calculator</title>
 	</head>
 	<body>
@@ -38,6 +39,7 @@
 											type="radio"
 											name="system"
 											id="metric"
+                      checked
 										/>
 										<label class="calculator__radio-label" for="metric"
 											>Metric</label
@@ -55,10 +57,13 @@
 										>
 									</div>
 								</div>
-								<div class="calculator__inputs">
+								<div class="calculator__inputs--metric">
 									<div class="calculator__field">
-										<label class="calculator__label" for="height">Height</label>
+										<p class="calculator__label">Height</p>
 										<div class="calculator__input-wrapper">
+											<label for="height" class="sr-only"
+												>Height in centimeters</label
+											>
 											<input
 												type="number"
 												name="height"
@@ -69,8 +74,11 @@
 										</div>
 									</div>
 									<div class="calculator__field">
-										<label class="calculator__label" for="weight">Weight</label>
+										<p class="calculator__label" for="weight">Weight</p>
 										<div class="calculator__input-wrapper">
+											<label for="weight" class="sr-only"
+												>Weight in kilograms</label
+											>
 											<input
 												type="number"
 												name="weight"
@@ -79,6 +87,66 @@
 											/>
 											<span class="calculator__unit">kg</span>
 										</div>
+									</div>
+								</div>
+								<div class="calculator__inputs--imperial" hidden>
+									<div class="calculator__field">
+										<p class="calculator__label">Height</p>
+										<div class="calculator__bundler">
+											<div class="calculator__input-wrapper">
+												<label for="height-ft" class="sr-only"
+													>Height in feet</label
+												>
+												<input
+													type="number"
+													name="height"
+													id="height-ft"
+													placeholder="0"
+												/>
+												<span class="calculator__unit">ft</span>
+											</div>
+											<div class="calculator__input-wrapper">
+												<label for="height-in" class="sr-only"
+													>Height in inches</label
+												>
+												<input
+													type="number"
+													name="height"
+													id="height-in"
+													placeholder="0"
+												/>
+												<span class="calculator__unit">in</span>
+											</div>
+										</div>
+									</div>
+									<div class="calculator__field">
+										<p class="calculator__label" for="weight">Weight</p>
+										<div class="calculator__bundler">
+                      <div class="calculator__input-wrapper">
+                        <label for="weight-st" class="sr-only"
+                          >Weight in stone</label
+                        >
+                        <input
+                          type="number"
+                          name="weight"
+                          id="weight-st"
+                          placeholder="0"
+                        />
+                        <span class="calculator__unit">st</span>
+                      </div>
+                      <div class="calculator__input-wrapper">
+                        <label for="weight-lbs" class="sr-only"
+                          >Weight in pounds</label
+                        >
+                        <input
+                          type="number"
+                          name="weight"
+                          id="weight-lbs"
+                          placeholder="0"
+                        />
+                        <span class="calculator__unit">lbs</span>
+                      </div>
+                    </div>
 									</div>
 								</div>
 							</form>

@@ -581,6 +581,12 @@ h4,
   font: 400 0.875rem/1.5 Inter, sans-serif;
   color: hsl(215, 17%, 45%);
 }
+.calculator__bundler {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
 .calculator__input-wrapper {
   font: 600 1.5rem/1.2 Inter, sans-serif;
   letter-spacing: -0.02em;
@@ -590,6 +596,7 @@ h4,
   color: hsl(215, 31%, 21%);
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .calculator__input-wrapper input {
   border: none;

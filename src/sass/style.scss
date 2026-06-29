@@ -732,14 +732,22 @@ h4,
 		color: $clr-grey-500;
 	}
 
+  &__bundler {
+    display: flex;
+    gap: $size-16;
+    align-items: center;
+    justify-content: space-between;
+  }
+
 	&__input-wrapper {
-		@include text-preset-4;
+    @include text-preset-4;
 		padding: $size-16 $size-24;
 		border: 1px solid $clr-grey-500;
 		border-radius: $radius-12;
 		color: $clr-blue-900;
 		display: flex;
 		align-items: center;
+    width: 100%;
 
 		input {
 			border: none;
