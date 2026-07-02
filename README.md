@@ -74,4 +74,4 @@ I find it hard in JavaScript not to go too fast. I want to get the final result 
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@katrien-s](https://www.frontendmentor.io/profile/katrien-s)
