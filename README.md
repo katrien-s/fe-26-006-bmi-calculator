@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://github.com/katrien-s/fe-26-006-bmi-calculator)
-- Live Site URL: [Netlify](fe-26-006-bmi-calculator.netlify.app)
+- Solution URL: [https://github.com/katrien-s/fe-26-006-bmi-calculator](https://github.com/katrien-s/fe-26-006-bmi-calculator)
+- Live Site URL: [https://fe-26-006-bmi-calculator.netlify.app](fe-26-006-bmi-calculator.netlify.app)
 
 ## My process
 

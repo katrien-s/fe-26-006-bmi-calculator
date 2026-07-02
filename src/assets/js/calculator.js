@@ -12,12 +12,17 @@ const calculatorImperial = document.querySelector(
 	'.calculator__inputs--imperial'
 );
 
-const isNotValidInput = (totalHeight, totalWeight) => {
+const isNotValidInput = (
+	totalHeight,
+	totalWeight,
+	heightLimit,
+	weightLimit
+) => {
 	if (
 		totalHeight === 0 ||
-		totalHeight > 275 ||
+		totalHeight > heightLimit ||
 		totalWeight === 0 ||
-		totalWeight > 600 ||
+		totalWeight > weightLimit ||
 		isNaN(totalHeight) ||
 		isNaN(totalWeight)
 	)
@@ -45,7 +50,7 @@ const calculateMetricBMI = () => {
 	const totalHeight = parseFloat(heightInput.value);
 	const totalWeight = parseFloat(weightInput.value);
 
-	if (isNotValidInput(totalHeight, totalWeight)) {
+	if (isNotValidInput(totalHeight, totalWeight, 275, 600)) {
 		calculatorScore.textContent = '--';
 		return;
 	}
@@ -65,7 +70,7 @@ const calculateImperialBMI = () => {
 	const totalWeight =
 		parseFloat(weightStInput.value) * 14 + parseFloat(weightLbsInput.value);
 
-	if (isNotValidInput(totalHeight, totalWeight)) {
+	if (isNotValidInput(totalHeight, totalWeight, 108, 1320)) {
 		calculatorScore.textContent = '--';
 		return;
 	}
