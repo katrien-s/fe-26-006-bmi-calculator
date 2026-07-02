@@ -200,6 +200,33 @@ body {
   }
 }
 
+.fb-col-wrapper {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, calc(min(100% - 3rem, 70rem) / 12)) 1fr;
+}
+.fb-col-wrapper .fullbleed {
+  grid-column: 1/-1;
+}
+.fb-col-wrapper .section--theory__textblock {
+  grid-column: 2/14;
+}
+@media screen and (min-width: 40rem) {
+  .fb-col-wrapper .fullbleed {
+    grid-column: 1/7;
+  }
+  .fb-col-wrapper .section--theory__textblock {
+    grid-column: 8/14;
+  }
+}
+@media screen and (min-width: 50rem) {
+  .fb-col-wrapper .fullbleed {
+    grid-column: 2/7;
+  }
+  .fb-col-wrapper .section--theory__textblock {
+    grid-column: 8/14;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -213,7 +240,7 @@ body {
 }
 
 [hidden] {
-  display: none;
+  display: none !important;
 }
 
 .skip-to-content {
@@ -425,11 +452,6 @@ h4,
   margin-block-start: 3rem;
 }
 @media screen and (min-width: 45rem) {
-  .section--theory {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4.5rem;
-  }
   .section--theory__textblock {
     align-self: center;
   }
@@ -437,12 +459,6 @@ h4,
     font: 600 3rem/1.1 Inter, sans-serif;
     letter-spacing: -0.02em;
     margin-block-start: unset;
-  }
-}
-@media screen and (min-width: 45rem) {
-  .section--theory {
-    width: 70rem;
-    margin-inline: auto;
   }
 }
 
@@ -562,12 +578,12 @@ h4,
   font: 400 1rem/1.5 Inter, sans-serif;
   font-weight: 600;
 }
-.calculator__inputs {
+.calculator__inputs--metric {
   display: grid;
   gap: 0.5rem;
 }
 @media screen and (min-width: 40rem) {
-  .calculator__inputs {
+  .calculator__inputs--metric {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }

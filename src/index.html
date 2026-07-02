@@ -11,7 +11,7 @@
 			href="./assets/images/favicon-32x32.png"
 		/>
 		<link rel="stylesheet" href="css/style.css" />
-		<script src="./assets/app.js" defer></script>
+		<script src="./assets/js/calculator.js" defer></script>
 		<title>Frontend Mentor | Body Mass Index Calculator</title>
 	</head>
 	<body>
@@ -30,33 +30,36 @@
 							</p>
 						</div>
 						<div class="calculator">
-							<p class="looks-h3">Enter your details below</p>
+							<h2 class="looks-h3">Enter your details below</h2>
 							<form action="" class="calculator__form">
-								<div class="calculator__radio-group">
-									<div class="calculator__radio">
-										<input
-											class="calculator__radio-input"
-											type="radio"
-											name="system"
-											id="metric"
-											checked
-										/>
-										<label class="calculator__radio-label" for="metric"
-											>Metric</label
-										>
+								<fieldset>
+									<legend class="sr-only">Select a metric system</legend>
+									<div class="calculator__radio-group">
+										<div class="calculator__radio">
+											<input
+												class="calculator__radio-input"
+												type="radio"
+												name="system"
+												id="metric"
+												checked
+											/>
+											<label class="calculator__radio-label" for="metric"
+												>Metric</label
+											>
+										</div>
+										<div class="calculator__radio">
+											<input
+												class="calculator__radio-input"
+												type="radio"
+												name="system"
+												id="imperial"
+											/>
+											<label class="calculator__radio-label" for="imperial"
+												>Imperial</label
+											>
+										</div>
 									</div>
-									<div class="calculator__radio">
-										<input
-											class="calculator__radio-input"
-											type="radio"
-											name="system"
-											id="imperial"
-										/>
-										<label class="calculator__radio-label" for="imperial"
-											>Imperial</label
-										>
-									</div>
-								</div>
+								</fieldset>
 								<div class="calculator__inputs--metric">
 									<div class="calculator__field">
 										<p class="calculator__label">Height</p>
@@ -76,7 +79,7 @@
 										</div>
 									</div>
 									<div class="calculator__field">
-										<p class="calculator__label" for="weight">Weight</p>
+										<p class="calculator__label">Weight</p>
 										<div class="calculator__input-wrapper">
 											<label for="weight" class="sr-only"
 												>Weight in kilograms</label
@@ -128,7 +131,7 @@
 										</div>
 									</div>
 									<div class="calculator__field">
-										<p class="calculator__label" for="weight">Weight</p>
+										<p class="calculator__label">Weight</p>
 										<div class="calculator__bundler">
 											<div class="calculator__input-wrapper">
 												<label for="weight-st" class="sr-only"
@@ -177,10 +180,11 @@
 					</div>
 				</div>
 			</section>
-			<section class="section--theory">
+			<section class="section--theory fb-col-wrapper">
 				<img
 					src="assets/images/image-man-eating.webp"
 					alt="Smiling young man in his twenties holding sushi with his chopsticks"
+					class="fullbleed"
 				/>
 				<div class="section--theory__textblock">
 					<h2 class="section--theory__title">What your BMI result means</h2>
@@ -278,7 +282,7 @@
 			<section class="section--limits wrapper">
 				<div class="section--limits__intro">
 					<h2 class="section--limits__title">Limitations of BMI</h2>
-					<p class="">
+					<p>
 						Although BMI is often a practical indicator of healthy weight, it is
 						not suited for every person. Specific groups should carefully
 						consider their BMI outcomes, and in certain cases, the measurement

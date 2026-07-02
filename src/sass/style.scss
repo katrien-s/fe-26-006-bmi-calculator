@@ -331,6 +331,44 @@ body {
 	}
 }
 
+.fb-col-wrapper {
+	display: grid;
+	grid-template-columns:
+		1fr repeat(
+			12,
+			calc(min(100% - ($spacing-inline * 2), $wrapper-max-width) / 12)
+		)
+		1fr;
+
+	.fullbleed {
+		grid-column: 1/-1;
+	}
+
+	.section--theory__textblock {
+		grid-column: 2/14;
+	}
+
+	@include mq($bp-tablet) {
+		.fullbleed {
+			grid-column: 1/7;
+		}
+
+		.section--theory__textblock {
+			grid-column: 8/14;
+		}
+	}
+
+	@include mq($bp-wide) {
+		.fullbleed {
+			grid-column: 2/7;
+		}
+
+		.section--theory__textblock {
+			grid-column: 8/14;
+		}
+	}
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -344,7 +382,7 @@ body {
 }
 
 [hidden] {
-	display: none;
+	display: none !important;
 }
 
 .skip-to-content {
@@ -515,7 +553,7 @@ h4,
 			margin-block-end: $size-40;
 		}
 
-    @include mq($bp-wide) {
+		@include mq($bp-wide) {
 			margin-block-end: $size-24;
 		}
 	}
@@ -523,7 +561,7 @@ h4,
 	@include mq($bp-wide) {
 		&::before {
 			width: min(75%, calc(50% + #{$wrapper-max-width * 0.25}));
-      height: 735px;
+			height: 735px;
 		}
 
 		&__text-wrapper {
@@ -562,10 +600,6 @@ h4,
 	}
 
 	@include mq($bp-desktop) {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: $size-72;
-
 		&__textblock {
 			align-self: center;
 		}
@@ -574,14 +608,6 @@ h4,
 			@include text-preset-2;
 			margin-block-start: unset;
 		}
-	}
-
-	// even kijken hoe we het beeld links laten aflopen en rechts de tekst laten eindigen op de wrapper-breedte
-	// breedte klopt ppk niet meer overflow op tablet-size
-
-	@include mq($bp-desktop) {
-		width: $wrapper-max-width;
-		margin-inline: auto;
 	}
 }
 
@@ -711,7 +737,7 @@ h4,
 		font-weight: $fw-600;
 	}
 
-	&__inputs {
+	&__inputs--metric {
 		display: grid;
 		gap: $size-8;
 
@@ -732,22 +758,22 @@ h4,
 		color: $clr-grey-500;
 	}
 
-  &__bundler {
-    display: flex;
-    gap: $size-16;
-    align-items: center;
-    justify-content: space-between;
-  }
+	&__bundler {
+		display: flex;
+		gap: $size-16;
+		align-items: center;
+		justify-content: space-between;
+	}
 
 	&__input-wrapper {
-    @include text-preset-4;
+		@include text-preset-4;
 		padding: $size-16 $size-24;
 		border: 1px solid $clr-grey-500;
 		border-radius: $radius-12;
 		color: $clr-blue-900;
 		display: flex;
 		align-items: center;
-    width: 100%;
+		width: 100%;
 
 		input {
 			border: none;
